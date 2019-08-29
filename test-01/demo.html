@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="test2"></div>
+   
+    <script type="text/javascript" src="js/react.development.js"></script>
+    <script type="text/javascript" src="js/react-dom.development.js"></script>
+    <script type="text/javascript" src="js/babel.min.js"></script>
+
+    <script type='text/babel'> 
+    const  names=['jquery','zepto','angular','react','vue']
+    // 1、创建虚拟DOM
+        const vDom2 = (<ul>
+            {
+                names.map((item,index)=><li key={index}>{item}</li>)
+            }
+        </ul>)
+        ReactDOM.render(vDom2,document.getElementById('test2'))
+    </script>
+</body>
+</html>

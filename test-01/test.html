@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="test2"></div>
+   
+    <script type="text/javascript" src="js/react.development.js"></script>
+    <script type="text/javascript" src="js/react-dom.development.js"></script>
+    <script type="text/javascript" src="js/babel.min.js"></script>
+
+    <script type='text/babel'> 
+    
+    // 1、创建虚拟DOM
+      class Like extends React.Component{
+        constructor(props){
+            super(props)
+            this.state = {
+                isLikeMe : false
+            }
+            // 将新增方法中的this强制绑定为组件对象  
+            this.handleClick = this.handleClick.bind(this)
+        }
+        // 新添加方法：内部的this默认不是组件对象，而是undefined
+        handleClick(){
+            const isLikeMe= !this.state.isLikeMe
+            this.setState({isLikeMe})
+        }
+        // 重写组件类的方法
+        render() {
+            const {isLikeMe} = this.state
+            return <h2 onClick={this.handleClick}>{isLikeMe? '你喜欢我':'我喜欢你'}</h2>
+        }
+      }
+
+    //2、渲染组件标签
+    ReactDOM.render(<Like />, document.getElementById('test2')) 
+    </script>
+</body>
+</html>

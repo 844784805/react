@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="test2"></div>
+    <div id="test3"></div>
+    <script type="text/javascript" src="js/react.development.js"></script>
+    <script type="text/javascript" src="js/react-dom.development.js"></script>
+    <script type="text/javascript" src="js/babel.min.js"></script>
+    <script type="text/javascript" src='js/prop-types.js'></script>
+
+    <script type='text/babel'> 
+    
+    class Form extends React.Component{
+        constructor(props){
+            super(props)
+            this.state ={
+                pwd: ''
+            }
+            this.submit = this.submit.bind(this)
+            this.changepwd = this.changepwd.bind(this)
+        }
+        submit(e){
+            alert("密码："+this.state.pwd + '姓名：'+this.input.value)
+            e.preventDefault()
+        }
+        changepwd(event){
+            const pwd = event.target.value
+            this.setState ({
+                pwd
+            }) 
+        }
+        render() {
+           return(
+               <form action="">
+                    姓名：<input type="text" ref={input => this.input = input}/>
+                    密码：<input type="password" value={this.state.pwd} onChange={this.changepwd}/>
+                    <button onClick={this.submit}>提交</button>
+               </form>
+           ) 
+        }
+    }
+        
+    ReactDOM.render(<Form />, document.getElementById('test3')) 
+    </script>
+</body>
+</html>
