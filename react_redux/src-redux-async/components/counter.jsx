@@ -8,9 +8,6 @@ class counter extends Component {
         incrementAsync: PropTypes.func.isRequired,
     }
 
- 
-  
-
     increment=()=>{
         const m =  Number(this.select.value) 
         this.props.increment(m)
@@ -28,9 +25,7 @@ class counter extends Component {
     incrementAsync= ()=>{
         const m =  Number(this.select.value) 
         this.props.incrementAsync(m)
-    } 
-
-   
+    }
 
     render() {
         return (
@@ -45,7 +40,6 @@ class counter extends Component {
                 <button onClick={this.decrement}>-</button>&nbsp;&nbsp;
                 <button onClick={this.incrementIfOdd}>increment if odd</button>&nbsp;&nbsp;
                 <button onClick={this.incrementAsync}>increment async</button>
-               
             </div>
         )
     }
